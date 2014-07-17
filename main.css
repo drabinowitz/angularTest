@@ -1,3 +1,11 @@
 .two {
 	background: orange;
 }
+
+.fail{ 
+  color:red; 
+}
+
+.pass{ 
+  color:green; 
+}

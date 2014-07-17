@@ -8,7 +8,35 @@
 
 	<div class="{{ classes }}">
 		
-		<h1 ng-repeat="number in numbers">{{ title }}</h1>
+		<h1>{{ title }}</h1>
+
+		<div ng-repeat="number in numbers | filter:myValue">
+
+			<p>{{ number }}</p>
+
+			<button ng-click="numbers.splice(numbers.length-1,1)">X</button>
+
+		</div>		
+
+		<button ng-click="numbers.push(numbers.length)">push</button>
+
+		<input type="text" ng-model="myValue">
+
+		<p>{{ myValue }}</p>
+
+		<button ng-click="myValue='newtext'">newtext</button>
+
+		<div ng-if="myValue=='newtext'" class="pass">
+			<p>you did it</p>
+		</div>
+
+		<div ng-if="myValue=='3'" class="pass">
+			<p>3 also works</p>
+		</div>
+
+		<div ng-if="myValue!=='newtext' && myValue!=='3'" class="fail">
+			<p>wrong</p>
+		</div>
 
 	</div>
 
