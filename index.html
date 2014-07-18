@@ -6,7 +6,9 @@
 </head>
 <body ng-controller="myController">
 
-	<div ng-repeat="message in messages | orderBy:'-views'">
+	<input type="text" ng-model="myValue.author">
+
+	<div ng-repeat="message in messages | orderBy:'-views' | filter:myValue">
 		
 		<p>{{ message.author | uppercase }}</p>
 
