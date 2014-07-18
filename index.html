@@ -2,55 +2,19 @@
 <html ng-app=''>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-	<link rel="stylesheet" href="main.css">
+	<script src="app.js"></script>
 </head>
-<body ng-init="classes='one two three'; title='An excellent title'; numbers=[0,1,2,3,4,5]">
+<body ng-controller="myController">
 
-	<div class="{{ classes }}">
+	<div ng-repeat="message in messages | orderBy:views">
 		
-		<h1>{{ title }}</h1>		
+		<p>{{ message.author | uppercase }}</p>
 
-		<button ng-click="numbers.push(numbers.length)">push</button>
+		<p>{{ message.content | lowercase }}</p>
 
-		<button ng-click="numbers.pop()">pop</button>
+		<p>{{ message.views | currency:"ViewSD$" }}</p>
 
-		<input type="text" ng-model="myValue">
-
-		<p>{{ myValue }}</p>
-
-		<button ng-click="myValue='newtext'">newtext</button>
-
-		<div ng-if="myValue=='newtext'" class="pass">
-			<p>you did it</p>
-		</div>
-
-		<div ng-if="myValue=='3'" class="pass">
-			<p>3 also works</p>
-		</div>
-
-		<div ng-if="myValue!=='newtext' && myValue!=='3'" class="fail">
-			<p>wrong</p>
-		</div>
-
-		<div ng-switch="myNumber">
-			<div ng-switch-when="5" class="pass">value of 5</div>
-			<div ng-switch-when="1" class="pass">value of 1</div>
-			<div ng-switch-default class="fail">didn't pass enter 5 or 1</div>
-		</div>
-
-		<form action="" ng-submit="numbers.push(myNumber); myNumber=null">
-
-			<input type="number" ng-model="myNumber" required="">
-
-			<input type="submit">
-
-		</form>
-
-	</div>
-
-	<div ng-repeat="number in numbers | filter:myValue track by $index" ng-class="{pass:myValue==3}" ng-init="myIndex=number">
-
-		<p>{{ number }} and {{ myIndex }}</p>
+		<p>{{ message.published | date:"fullDate" }}</p>
 
 	</div>
 
