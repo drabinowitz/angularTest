@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app=''>
+<html ng-app='filters'>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 	<script src="app.js"></script>
@@ -12,7 +12,7 @@
 		
 		<p>{{ message.author | uppercase }}</p>
 
-		<p>{{ message.content | lowercase }}</p>
+		<p>{{ message.content | titlecase }}</p>
 
 		<p>{{ message.views | currency:"ViewSD$" }}</p>
 
