@@ -6,7 +6,7 @@
 </head>
 <body ng-controller="myController">
 
-	<div ng-repeat="message in messages | orderBy:views">
+	<div ng-repeat="message in messages | orderBy:'-views'">
 		
 		<p>{{ message.author | uppercase }}</p>
 
