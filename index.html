@@ -7,7 +7,48 @@
 
 <body>
 	
-	
+	<form>
+		
+		<label for="country">Country</label>
+
+		<select name="country" ng-model="data.country" ng-options="country for country in ['Antigua','Aruba','Burundi','Brunei']">...</select><br>
+
+		<label for="title">Title</label>
+
+		<input type="text" name="title" ng-model="data.title" placeholder="Enter a title"><br>
+
+		<label for="confirm">Confirm</label>
+
+		<input type="checkbox" name="confirm" ng-model="data.confirm"><br>
+
+		<label for="gender">Gender</label>
+
+		<input type="radio" name="gender" ng-model="data.gender" value="male">
+
+		<input type="radio" name="gender" ng-model="data.gender" value="female">
+
+		<label for="aboutMe">About Me</label>
+
+		<textarea name="aboutMe" ng-model="data.aboutMe">></textarea><br>
+
+		<label for="excitement">Excitement Level</label>
+
+		<input type="range" name="excitement" ng-model="data.excitement">
+
+	</form>
+
+	<div>
+		
+		<h1>results</h1>
+
+		<p>Country: {{ data.country }}</p>
+		<p>Title: {{ data.title }}</p>
+		<p>Confirm: {{ data.confirm }}</p>
+		<p>Gender: {{ data.gender }}</p>
+		<p>About Me: {{ data.aboutMe }}</p>
+		<p>Excitement Level: {{ data.excitement }}</p>
+
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 
