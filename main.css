@@ -1,11 +1,125 @@
-.two {
-	background: orange;
+.my-special-transition.ng-enter {
+	-webkit-transition:0.5s linear all;
+	transition:0.5s linear all;
+
+	background: red;
 }
 
-.fail{ 
-  color:red; 
+.my-special-transition.ng-enter.ng-enter-active{
+	background: blue;
 }
 
-.pass{ 
-  color:green; 
+.my-special-animation.ng-enter{
+	-webkit-animation:0.5s red-to-blue;
+	animation: 0.5s red-to-blue;
+}
+
+@keyframes red-to-blue{
+	from {background: red;}
+	to {background: blue;}
+}
+
+@-webkit-keyframes red-to-blue{
+	from {background: red;}
+	to {background: blue;}
+}
+
+.my-repeat-transition.ng-enter,.my-repeat-transition.ng-leave,.my-repeat-transition.ng-move{
+	-webkit-transition:0.5s linear all;
+	transition:0.5s linear all;
+	position: relative;
+}
+
+.my-repeat-transition.ng-enter{
+	left:-10px;
+	opacity: 0;
+}
+
+.my-repeat-transition.ng-enter.ng-enter-active{
+	left:0;
+	opacity: 1;
+}
+
+.my-repeat-transition.ng-leave{
+	left:0;
+	opacity: 1;
+}
+
+.my-repeat-transition.ng-leave.ng-leave-active{
+	left:-10px;
+	opacity: 0;
+}
+
+.my-repeat-transition.ng-move{
+	opacity: 0.5;
+}
+
+.my-repeat-transition.ng-move-active{
+	opacity: 1;
+}
+
+.my-repeat-animation.ng-enter{
+	-webkit-animation:0.5s enterAnimate;
+	animation:0.5s enterAnimate;
+	position: relative;
+}
+
+@keyframes enterAnimate{
+	from {
+		left:-10px;
+		opacity: 0;
+	}
+	to {
+		left:0;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes enterAnimate{
+	from {
+		left:-10px;
+		opacity: 0;
+	}
+	to {
+		left:0;
+		opacity: 1;
+	}
+}
+
+.my-repeat-animation.ng-leave{
+	-webkit-animation:0.5s leaveAnimate;
+	animation:0.5s leaveAnimate;
+	position: relative;
+}
+
+@keyframes leaveAnimate{
+	from {
+		left:0;
+		opacity: 1;
+	}
+	to {
+		left:-10px;
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes leaveAnimate{
+	from {left:0;opacity: 1;}
+	to {left:-10px;opacity: 0;}
+}
+
+.my-repeat-animation.ng-move{
+	-webkit-animation:0.5s moveAnimate;
+	animation:0.5s moveAnimate;
+	position: relative;
+}
+
+@keyframes moveAnimate{
+	from {opacity: 0.5;}
+	to {opacity: 1;}
+}
+
+@-webkit-keyframes moveAnimate{
+	from {opacity: 0.5;}
+	to {opacity: 1;}
 }
