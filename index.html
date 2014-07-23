@@ -9,11 +9,15 @@
 <body>
 	
 	<div ng-init="on=true">
+
+	<!--transition/animate on ng-if-->
 		
 		<button ng-click="on=!on">Toggle On/Off</button>
 		<div class="my-special-transition" ng-if="on">This content will enter and leave via transition</div>
 		<div class="my-special-animation" ng-if="on">This content will enter and leave via animation</div>
 	</div>
+
+	<!--transition/animate on ng-repeat-->
 
 	<div ng-init="items=[1,2,3,4,5,6,7,8,9]">
 		
@@ -33,6 +37,8 @@
 
 	</div>
 
+	<!--transition/animate on ng-include-->
+
 	<div ng-init="myExp='one'">
 	  <button ng-click="myExp='one'">One</button>
 	  <button ng-click="myExp='two'">Two</button>
@@ -41,6 +47,20 @@
 	    <div ng-include="myExp" class="my-slide-animation"></div>
 	  </div>
 	</div>
+
+	<script type="text/ng-template" id="one">
+	  one
+	</script>
+
+	<script type="text/ng-template" id="two">
+	  two
+	</script>
+
+	<script type="text/ng-template" id="three">
+	  three
+	</script>
+
+	<!--transition/animate on ng-switch-->
 
 	<div ng-init="mySwitch='one'">
 	  <button ng-click="mySwitch='one'">One</button>
@@ -59,17 +79,34 @@
 	  </div>
 	</div>
 
-	<script type="text/ng-template" id="one">
-	  one
-	</script>
+	<!--ng-class-->
 
-	<script type="text/ng-template" id="two">
-	  two
-	</script>
+	<div ng-init="disabled=false">
+	  <button ng-click="disabled=!disabled">Toggle Disable</button>
+	  <div ng-class="{disabled:disabled}" class="my-toggle-animation">
+	    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+	  </div>
+	</div>
 
-	<script type="text/ng-template" id="three">
-	  three
-	</script>
+	<!--ng-show-->
+
+	<div ng-init="isHidden=false">
+	  <button ng-click="isHidden=!isHidden">Show / Hide Element</button>
+	  <div class="my-show-hide-animation" ng-hide="isHidden">
+	    I am visible!
+	  </div>
+	</div>
+
+	<!--staggered animation-->
+
+	<div ng-init="staggerItems=[1,2,3,4,5,6]">
+
+		<input type="text" placeholder="filter" ng-model="q">
+
+	</div>
+	<div ng-repeat="staggerItem in staggerItems | filter:q" class="repeat-stagger-transition" ng-class-even="'left'" ng-class-odd="'right'">
+		{{staggerItem}}
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 
