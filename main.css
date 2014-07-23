@@ -548,3 +548,28 @@
   from { opacity:0;left:0; }
   to { opacity:1;left:50px; }
 }
+
+/* stagger class */
+
+.staggered-disable{
+	background: #eee; 
+}
+
+.staggered-disable.disable-add,
+.staggered-disable.disable-remove{
+	-webkit-transition:0.5s linear all;
+	transition:0.5s linear all;
+}
+
+.staggered-disable.disable{
+	background: blue;
+	color: white;
+}
+
+.staggered-disable.disable-add-stagger,
+.staggered-disable.disable-remove-stagger{
+	-webkit-transition-delay:0.2s;
+	transition-delay:0.2s;
+	-webkit-transition-duration:0;
+	-transition-duration:0;
+}

@@ -108,6 +108,15 @@
 		{{staggerItem}}
 	</div>
 
+	<!--staggered class-->
+
+	<div ng-init="disable=false">
+	  <button ng-click="disable=!disable">Toggle Disable</button>
+	  <div ng-repeat="staggerItem in staggerItems " ng-class="{disable:disable}" class="staggered-disable">
+	    {{staggerItem}}
+	  </div>
+	</div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js"></script>
