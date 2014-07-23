@@ -227,3 +227,76 @@
     opacity:0;
   }
 }
+
+/* .my-switch-container {
+  position:relative;
+  height:500px;
+}
+
+.my-switch-animation.ng-enter,
+.my-switch-animation.ng-leave {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+  height:500px;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.my-switch-animation.ng-enter {
+  left:100%;
+}
+
+.my-switch-animation.ng-leave,
+.my-switch-animation.ng-enter.ng-enter-active {
+  left:0;
+}
+
+.my-switch-animation.ng-leave.ng-leave-active {
+  left:-100%;
+} */
+
+.my-switch-container {
+  position:relative;
+  height:500px;
+}
+
+.my-switch-animation.ng-enter, .my-switch-animation.ng-leave {
+  height:500px;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.my-switch-animation.ng-enter {
+  -webkit-animation:0.5s switch-enter;
+  animation:0.5s switch-enter;
+}
+
+.my-switch-animation.ng-leave {
+  -webkit-animation:0.5s switch-leave;
+  animation:0.5s switch-leave;
+}
+
+@keyframes switch-enter {
+  from { left:100%; }
+  to { left:0; }
+}
+
+@-webkit-keyframes switch-enter {
+  from { left:100%; }
+  to { left:0; }
+}
+
+@keyframes switch-leave {
+  from { left:0; }
+  to { left:-100%; }
+}
+
+@-webkit-keyframes switch-leave {
+  from { left:0; }
+  to { left:-100%; }
+}

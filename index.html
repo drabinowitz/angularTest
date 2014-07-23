@@ -42,6 +42,23 @@
 	  </div>
 	</div>
 
+	<div ng-init="mySwitch='one'">
+	  <button ng-click="mySwitch='one'">One</button>
+	  <button ng-click="mySwitch='two'">Two</button>
+	  <button ng-click="mySwitch='three'">Three</button>
+	  <div ng-switch="mySwitch" class="my-switch-container">
+	    <div ng-switch-when="one" class="my-switch-animation">
+	      one
+	    </div>
+	    <div ng-switch-when="two" class="my-switch-animation">
+	      two
+	    </div>
+	    <div ng-switch-when="three" class="my-switch-animation">
+	      three
+	    </div>
+	  </div>
+	</div>
+
 	<script type="text/ng-template" id="one">
 	  one
 	</script>
