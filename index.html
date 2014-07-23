@@ -1,65 +1,22 @@
 <!DOCTYPE html>
-<html ng-app='formApp'>
+<html ng-app='myApp'>
 <head>
 
 </head>
 
 
-<body ng-controller="formCtrl">
+<body>
 	
-	<form ng-submit="submit()" name="myForm" novalidate>
+	<div ng-init="items=['a','b','c','d','e']">
 		
-		<label for="country">Country</label>
-
-		<select name="country" ng-model="data.country" ng-options="country for country in ['Antigua','Aruba','Burundi','Brunei']">...</select><br>
-
-		<label for="title">Title</label>
-
-		<input type="text" name="title" ng-model="data.title" placeholder="Enter a title" ng-maxlength="{{ minMaxVal }}"><br>
-
-		<label for="confirm">Confirm</label>
-
-		<input type="checkbox" name="confirm" ng-model="data.confirm"><br>
-
-		<label for="gender">Gender</label>
-
-		<input type="radio" name="gender" ng-model="data.gender" value="male">
-
-		<input type="radio" name="gender" ng-model="data.gender" value="female">
-
-		<label for="aboutMe">About Me</label>
-
-		<textarea name="aboutMe" ng-model="data.aboutMe">></textarea><br>
-
-		<label for="excitement">Excitement Level</label>
-
-		<input type="range" name="excitement" ng-model="data.excitement">
-
-		<label for="emailAddress">Email Address</label>
-
-		<input name="emailAddress" type="email" ng-model="data.email" novalidate>
-
-		<p ng-if="submitted && myForm.emailAddress.$error.email">invalid email address</p>
-
-		<input type="submit" value="submit">
-
-	</form>
-
-	<div>
-
-		<h1>results</h1>
-
-		<p>Country: {{ data.country }}</p>
-		<p>Title: {{ data.title }}</p>
-		<p>Confirm: {{ data.confirm }}</p>
-		<p>Gender: {{ data.gender }}</p>
-		<p>About Me: {{ data.aboutMe }}</p>
-		<p>Excitement Level: {{ data.excitement }}</p>
-		<p>Email: {{ data.email }}</p>
+		<input placeholder="filter" ng-model="f">
+		<div ng-repeat="item in items | filter:f" class="repeat-item"></div>
 
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js"></script>
 
 	<script src="app.js"></script>
 
