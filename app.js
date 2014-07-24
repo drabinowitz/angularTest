@@ -1,6 +1,6 @@
 angular.module('myApp',[]).
 	
-	controller('myCtrl',function($scope,$timeout,$q){
+	controller('myCtrl',function($scope,$timeout,$q,$http){
 
 		function wait() {
 
@@ -16,16 +16,40 @@ angular.module('myApp',[]).
 
 		};
 
-	    $scope.saveSettings = function() {
-    
-	        $scope.notifySaved = true;
-	    
-	        wait().then(function() {
-	    
-	            $scope.notifySaved = false;
-	    
-	        });
-    	
-    	};
+		function notify(){
 
-	})
+			$scope.notifySaved = true;
+
+			return wait().then(function(){
+
+				$scope.notifySaved = false;
+
+			});
+
+		}
+
+	    $scope.saveSettings = function() {
+
+	    	$http.put('api/update_password', $scope.data).
+
+    		success(function(){
+
+        		notify();
+
+        	}).
+
+        	error(function() {
+
+        		$scope.error = true;
+
+        		wait().then(function(){
+
+        			$scope.error = false;
+
+        		});
+
+        	});
+    
+	    };
+
+	});
