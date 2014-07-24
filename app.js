@@ -20,7 +20,7 @@ angular.module('myApp',[]).
 
 			$scope.notifySaved = true;
 
-			return wait().then(function(){
+			wait().then(function(){
 
 				$scope.notifySaved = false;
 
