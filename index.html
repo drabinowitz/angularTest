@@ -7,7 +7,40 @@
 
 <body ng-controller="myCtrl">
 	
-	
+	<div>
+    
+        <div ng-if="notifySaved">
+    
+            Your password has been saved.
+    
+        </div>
+    
+        <form ng-submit="saveSettings()">
+    
+        <p>
+            <label>Password:</label>
+    
+            <input type="password" ng-model="data.password" name="password" required />
+    
+        </p>
+    
+        <p>
+    
+            <label>Password Confirmation:</label>
+    
+            <input type="password" ng-model="data.password_confirm" name="password_confirm" required />
+    
+        </p>
+    
+        <p>
+    
+            <input type="submit" />
+    
+        </p>
+    
+        </form>
+    
+    </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 
